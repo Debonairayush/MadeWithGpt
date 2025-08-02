@@ -1,26 +1,66 @@
-<h1>Problem Statement :</h1></br>
-Lack of personalized guidance in learning,requiring tailored roadmaps for efficient knowledge acquisition.
-</br>
-</br>
-<h1>Solution :</h1></br>
-GPTMapper is an AI-powered guide to success, offering a personalized roadmap for achieving your goals and advancing your career. With its intelligent insights and guidance, it helps you navigate the path to success, providing valuable advice and direction along the way. Harness the power of AI to unlock your full potential and reach new heights in your personal and professional journey.
-</br>
-</br>
-<h1>Tech Stack :</h1></br>
-<ul>
-  <li>React.js</li>
-  <li>Node.js</li>
-  <li>Express.js</li>
-  <li>D3.js</li>
-  <li>Pupetteer</li>
-  <li>Axios</li>
-  <li>Base 64 image converter</li>
-  </ul>
-  </br>
-  </br>
-  
-  
-  </br>
-  </br>
-    <h1>Demo link : </h1>
-    <a href="https://main--peaceful-pixie-1ccecf.netlify.app/">GPT Mapper</a>
+# 🚀 GPTMapper – Your AI-Powered Roadmap Companion
+
+> **Problem**: Lack of personalized guidance in learning, requiring tailored roadmaps for efficient knowledge acquisition.
+
+> **Solution**:  
+**GPTMapper** is your AI-powered guide to success, offering a **personalized learning roadmap** tailored to your goals. It empowers you with intelligent insights and actionable guidance to help you grow in your personal and professional journey.  
+Leverage GPTMapper to unlock your full potential and navigate your path with confidence.
+
+---
+
+## 🧠 Features
+
+- 🎯 Personalized learning roadmaps
+- 🧭 Goal-driven guidance for career and skill advancement
+- ⚡ AI-powered insights and suggestions
+- 📈 Visual representation of learning paths (using D3.js)
+- 📸 Automated screenshot generation (via Puppeteer)
+
+---
+
+## 🛠️ Tech Stack
+
+| Tech / Tool         | Logo |
+|---------------------|------|
+| **Frontend**        | <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React.js" width="60"/> |
+| **Backend**         | <img src="https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png" alt="Node.js" width="60"/> <img src="https://raw.githubusercontent.com/github/explore/main/topics/express/express.png" alt="Express.js" width="60"/> |
+| **Visualization**   | <img src="https://raw.githubusercontent.com/d3/d3-logo/master/d3.png" alt="D3.js" width="60"/> |
+| **Automation**      | <img src="https://raw.githubusercontent.com/puppeteer/puppeteer/main/assets/puppeteer-logo.svg" alt="Puppeteer" width="60"/> |
+| **Networking**      | <img src="https://axios-http.com/assets/logo.svg" alt="Axios" width="60"/> |
+| **Utilities**       | 🧩 Base64 Image Converter |
+
+---
+
+## 🌐 Demo
+
+🔗 [GPTMapper Live Demo](#) *(Add your live link here)*
+
+---
+
+## 📸 Screenshots
+
+> Add your actual screenshots here and replace the placeholders below
+
+### 🧭 Personalized Roadmap View
+![Roadmap Screenshot](./screenshots/roadmap.png)
+
+### 🛠️ Tech Integration Flow
+![Tech Flow](./screenshots/techflow.png)
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/GPTMapper.git
+
+# Navigate into the project folder
+cd GPTMapper
+
+# Install dependencies for client and server
+cd client && npm install
+cd ../server && npm install
+
+# Run the client and server (adjust as per your setup)
+npm run dev
