@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapWithGPT Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MapWithGPT - API Test</h1>
+        <p>Enter a topic to generate a roadmap:</p>
+        
+        <input type="text" id="topicInput" placeholder="Enter a topic (e.g., javascript, react, python)" value="javascript">
+        <br>
+        <button onclick="generateRoadmap()">Generate Roadmap</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function generateRoadmap() {
+            const topic = document.getElementById('topicInput').value;
+            const resultDiv = document.getElementById('result');
+            
+            if (!topic.trim()) {
+                resultDiv.innerHTML = '<p style="color: red;">Please enter a topic!</p>';
+                return;
+            }
+            
+            // Show loading
+            resultDiv.innerHTML = '<div class="loader"></div><p>Generating roadmap for: ' + topic + '</p>';
+            
+            try {
+                const response = await fetch(`http://localhost:3000/getRoadmap?topic=${encodeURIComponent(topic)}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.photo) {
+                    resultDiv.innerHTML = `
+                        <h3>✅ Roadmap Generated Successfully!</h3>
+                        <p><strong>Topic:</strong> ${topic}</p>
+                        <img src="data:image/png;base64,${data.photo}" alt="Generated Roadmap for ${topic}">
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<p style="color: orange;">❌ No roadmap image generated.</p>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p style="color: red;">⚠️ Error: ${error.message}</p>`;
+                console.error('Error fetching roadmap:', error);
+            }
+        }
+        
+        // Allow Enter key to trigger generation
+        document.getElementById('topicInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateRoadmap();
+            }
+        });
+    </script>
+</body>
+</html>
