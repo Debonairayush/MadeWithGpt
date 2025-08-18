@@ -10,9 +10,9 @@ function App() {
     <BrowserRouter>
     <div className="w-100 h-screen">
       <Routes>
-        <Route path="/"><Route index element={<HomePage />} /></Route>
-        <Route path="/about"><Route index element={<About />} /></Route>
-        <Route path="/contact"><Route index element={<Contact />} /></Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   </BrowserRouter>

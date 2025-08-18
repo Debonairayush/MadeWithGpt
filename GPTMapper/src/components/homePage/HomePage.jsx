@@ -24,7 +24,7 @@ const HomePage = () => {
     setRoadmapImage(null);
 
     try {
-      const response = await fetch(`http://localhost:3000/getRoadmap?topic=${encodeURIComponent(topic)}`, {
+      const response = await fetch(`http://localhost:3001/getRoadmap?topic=${encodeURIComponent(topic)}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
